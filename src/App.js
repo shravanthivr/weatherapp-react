@@ -9,7 +9,6 @@ class App extends React.Component {
     constructor (props) {
         super (props);
         this.state = {
-            inputString : '',
             locArray : [],
             address: '',
             weatherInfoData : [],
@@ -45,6 +44,7 @@ class App extends React.Component {
                     weatherInfoData : this.extractDataForCurrentWeather(forecastData),
                     isAppLoaded : true
                 })
+                console.log (this.state.weatherForeCast);
             }).catch (error => {
                 console.log ('Error', error);
             });   
@@ -74,7 +74,7 @@ class App extends React.Component {
         const proxy = 'https://cors-anywhere.herokuapp.com/';
         const BASE_URL = 'https://api.darksky.net/forecast';
         const exclude = "?exclude=minutely,hourly,alerts,flags";
-        const queryParams = (haslocArray) ? `${this.state.locArray[0]},${this.state.locArray[1]}` : `q=${this.state.inputString}`;
+        const queryParams = (haslocArray) ? `${this.state.locArray[0]},${this.state.locArray[1]}` : '';
         const unitType = (this.state.unit === 'C') ? 'metric' : 'imperial';
 
         const url = `${proxy}${BASE_URL}/${API_KEY}/${queryParams}${exclude}`;
@@ -96,7 +96,6 @@ class App extends React.Component {
 
 
     extractDataForCurrentWeather = (forecastData) => {
-        //console.log (forecastData);
         const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         const latitude = forecastData.latitude;
         const longitude = forecastData.longitude;

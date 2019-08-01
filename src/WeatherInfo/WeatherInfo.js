@@ -5,7 +5,9 @@ import './weather-icons/css/weather-icons.min.css';
 
 
 class WeatherInfo extends React.Component {
-
+  fixNaming(iconName) {
+    return iconName.replace(/-/g, "_");
+  }
  render() {
   const {   
     date,
@@ -34,7 +36,8 @@ class WeatherInfo extends React.Component {
       size: 128,
       animate: true
     };
-    var iconName = icon !== undefined ? list[list.indexOf (icon.toUpperCase())] : defaults.icon;
+  
+    var iconName = typeof icon === "undefined"? defaults.icon : list[this.fixNaming(icon.toUpperCase())]  ;
  
     return (
       <div>

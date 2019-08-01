@@ -2,24 +2,34 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
-	margin: 0 40px 0 20px;
-	padding: 0 20px 0 20px;
+	margin: 0px 40px 0px 20px;
+	padding: 0px 20px 0px 20px;
     width: 100%;
+    height: 1000px;
     background-color: #51cacf;
     color: white;
 }
 
-
 .header {
     background: #4F4D53;
-    width: 90%;
+    width: 100%;
     height: 60px;
     border-bottom:  12px solid #E8BE02;
 }
 
 
 .title {
-    left:40%;
     top:15%;
     text-align: center;
+}
+
+@media (min-width: 650px ) {
+    .App {
+        background-position: center center;
+    }
+
+    .App-content {
+        align-items: flex-end;
+        justify-content: center;
+    }
 }
