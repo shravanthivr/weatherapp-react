@@ -8,6 +8,30 @@
   pointer-events: none;
 }
 
+.app-container{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: space-evenly;
+  margin: 15px 0px;
+
+}
+
+.align-center {
+  text-align: center;
+}
+
+.app-weather{
+  margin: 15px 0px;
+}
+
+.app-instruction{
+  font-size: 1.1rem;
+  margin: auto;
+  text-align: center;
+  color: white;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
