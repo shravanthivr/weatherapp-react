@@ -5,6 +5,7 @@ import './weather-icons/css/weather-icons.min.css';
 
 
 class WeatherInfo extends React.Component {
+
   fixNaming(iconName) {
     return iconName.replace(/-/g, "_");
   }
@@ -30,14 +31,15 @@ class WeatherInfo extends React.Component {
       'SLEET','SNOW',
       'WIND','FOG'
     ];
-    const defaults = {
+    
+    ReactAnimatedWeather.defaultProps = {
       icon: 'PARTLY_CLOUDY_DAY',
       color: 'goldenrod',
       size: 128,
       animate: true
     };
   
-    var iconName = typeof icon === "undefined"? defaults.icon : list[this.fixNaming(icon.toUpperCase())]  ;
+    var iconName = icon?  list[this.fixNaming(icon.toUpperCase())] : '';
  
     return (
       <div>
@@ -50,9 +52,7 @@ class WeatherInfo extends React.Component {
               <div>{date}</div>
           </div>
           <div className="icon-container">
-              <ReactAnimatedWeather icon={iconName} color={defaults.color}
-                  size={defaults.size}
-                  animate={defaults.animate}
+              <ReactAnimatedWeather icon={iconName}
               />
               <div className="weather-desc">{description}</div>
           </div>

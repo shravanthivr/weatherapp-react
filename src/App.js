@@ -70,7 +70,7 @@ class App extends React.Component {
 
     // fetching data
     fetchWeatherData = (haslocArray)=> {
-        const API_KEY = 'e9ce53dc730b2080454872f4d62d454e'; // data sky key
+        const API_KEY = '8bd9ada7f740ff2f516c99a94013fd01'; // data sky key
         const proxy = 'https://cors-anywhere.herokuapp.com/';
         const BASE_URL = 'https://api.darksky.net/forecast';
         const exclude = "?exclude=minutely,hourly,alerts,flags";
